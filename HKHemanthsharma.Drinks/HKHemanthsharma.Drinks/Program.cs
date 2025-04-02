@@ -1,13 +1,27 @@
-﻿namespace HKHemanthsharma.Drinks
+﻿using HKHemanthsharma.Drinks.Models;
+namespace HKHemanthsharma.Drinks
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string baseUrl = "https://www.thecocktaildb.com/api/json/v1/1";
-            Cocktails cocktails = new Cocktails(baseUrl);
-            string result = cocktails.GetCategriesAsync().GetAwaiter().GetResult();
-            Console.WriteLine(result);
+            bool noExit = true;
+            while (noExit)
+            {
+                Console.Clear();
+                string baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/";
+                Cocktails coctails = new Cocktails(baseUrl);
+                var CategoryList = coctails.GetCategoryAsync().GetAwaiter().GetResult();
+                UserOutputs.CategoryMenu(CategoryList);
+                string userChoice = UserInputs.ChooseCategory(CategoryList);
+                var drinksListByCategory = coctails.GetDrinksByCategoryAsync(userChoice).GetAwaiter().GetResult();
+                string drinkId = UserOutputs.drinksListMenu(drinksListByCategory);
+                if (!(drinkId.ToLower() == "x"))
+                {
+                    InformationDrinks drinksInfo = coctails.GetDrinkInformationByIdAsync(drinkId).GetAwaiter().GetResult();
+                    UserOutputs.DisplayDrinkInfo(drinksInfo);
+                }
+            }
         }
     }
 }

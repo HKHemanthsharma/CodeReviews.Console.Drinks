@@ -11,7 +11,7 @@ namespace HKHemanthsharma.Drinks
                     .Title("[pink3]Please Select a Category of drink that you want to Order[/]")
                     .PageSize(10)
                     .MoreChoicesText("[grey](Move up and down to reveal more categories)[/]")
-                    .AddChoices(categories.drinkCategories.Select(d => d.CategoryName)));
+                    .AddChoices(categories.DrinkCategories.Select(d => d.CategoryName)));
             return chosenCategory;
         }
         public static string ChooseId(List<string> drinksId)

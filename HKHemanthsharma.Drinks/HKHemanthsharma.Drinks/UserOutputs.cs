@@ -9,14 +9,14 @@ namespace HKHemanthsharma.Drinks
             Table Categorymenu = new Table();
             Categorymenu.Title = new TableTitle("Available Categories");
             Categorymenu.AddColumn("CategoryName");
-            foreach (var category in categories.drinkCategories)
+            foreach (var category in categories.DrinkCategories)
             {
                 Categorymenu.AddRow($"[yellow]{category.CategoryName}[/]");
             }
             Categorymenu.Border = TableBorder.Double;
             AnsiConsole.Write(Categorymenu);
         }
-        public static string drinksListMenu(CategoryDrinks drinksListByCategory)
+        public static string DrinksListMenu(CategoryDrinks drinksListByCategory)
         {
             List<string> drinksName = new List<string>();
             List<string> drinksId = new List<string>();

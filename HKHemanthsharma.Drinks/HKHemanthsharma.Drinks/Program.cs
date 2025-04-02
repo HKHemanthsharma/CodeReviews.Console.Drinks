@@ -15,7 +15,7 @@ namespace HKHemanthsharma.Drinks
                 UserOutputs.CategoryMenu(CategoryList);
                 string userChoice = UserInputs.ChooseCategory(CategoryList);
                 var drinksListByCategory = coctails.GetDrinksByCategoryAsync(userChoice).GetAwaiter().GetResult();
-                string drinkId = UserOutputs.drinksListMenu(drinksListByCategory);
+                string drinkId = UserOutputs.DrinksListMenu(drinksListByCategory);
                 if (!(drinkId.ToLower() == "x"))
                 {
                     InformationDrinks drinksInfo = coctails.GetDrinkInformationByIdAsync(drinkId).GetAwaiter().GetResult();

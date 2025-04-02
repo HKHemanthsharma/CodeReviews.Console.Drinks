@@ -80,11 +80,6 @@ namespace HKHemanthsharma.Drinks
                 };
                 instructionGrid.AddRow(instructionsPanel);
             }
-            var layout = new Layout("Root")
-                .SplitRows(
-                    new Layout("Top"),
-                    new Layout("Bottom")
-                );
             AnsiConsole.Clear();
             AnsiConsole.Write(new Rule("[yellow] Cocktail Database [/]").RuleStyle("grey"));
             AnsiConsole.Write(table);
